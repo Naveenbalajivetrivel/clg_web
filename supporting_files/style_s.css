@@ -1,0 +1,48 @@
+.marquee_section {
+ height: 50px;  
+ background: #f3fffc;
+ overflow: hidden;
+ position: relative;
+}
+.marquee_section span {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);    
+ transform:translateX(100%);
+ /* Apply animation to this element */  
+ -moz-animation: marquee_section 20s linear infinite;
+ -webkit-animation: marquee_section 20s linear infinite;
+ animation: marquee_section 20s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes marquee_section {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes marquee_section {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes marquee_section {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);       
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+.marquee_section span:hover {
+ -moz-animation-play-state: paused;
+ -webkit-animation-play-state: paused;
+ animation-play-state: paused;
+ }
